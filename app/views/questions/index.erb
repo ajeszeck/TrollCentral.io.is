@@ -1,18 +1,20 @@
+<% if session[:user_id] %>
+<form class="question-form" action="/questions" method="post">
+  <label for="question_text">Ask Your Question: </label>
+  <input type="text" name="question_text">
+  <input class="comment-button" type="submit" value="Submit">
+</form>
+<% end %>
+
 <div>
   <% @questions.each do |question| %>
   <div class="topic">
-    <a href="/questions/<%=question.id%>"><h2><%= question.question_text %></h2></a>
+    <%= erb :'partials/_vote',
+    locals: {item: question, type: "question", voteable_id: question.id} %>
     <div>
+      <a href="/questions/<%=question.id%>"><h2><%= question.question_text %></h2></a>
       <label>Answers: <%= question.answers.count %></label>
     </div>
   </div>
   <% end %>
 </div>
-
-<% if session[:user_id] %>
-<form action="/questions" method="post">
-  <label for="question_text">Question: </label>
-  <input type="text" name="question_text">
-  <input class="comment-button" type="submit" value="Submit">
-</form>
-<% end %>

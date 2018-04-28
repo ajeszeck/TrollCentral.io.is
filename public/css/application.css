@@ -33,6 +33,11 @@ h2 {
   font-weight: 500;
 }
 
+.question-form {
+  align-self: flex-end;
+  padding-right: 1rem;
+}
+
 .vote {
   color: #4CAF50;
   border: none;
@@ -79,9 +84,11 @@ a {
 }
 
 .topic {
+  display: flex;
   border: 1px solid grey;
   padding: 0.5rem;
   margin: 1rem;
+  justify-content: flex-start;
 }
 
 .signup a {
@@ -134,6 +141,7 @@ a {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  margin-right: 1rem;
 }
 
 .comment {
